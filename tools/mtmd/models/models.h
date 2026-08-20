@@ -389,6 +389,13 @@ struct clip_graph_kimik25 : clip_graph {
     ggml_tensor * resize_position_embeddings_3d(uint32_t interpolation_mode);
 };
 
+struct clip_graph_locateanything : clip_graph {
+    clip_graph_locateanything(clip_ctx * ctx, const clip_image_f32 & img) : clip_graph(ctx, img) {}
+    ggml_cgraph * build() override;
+
+    ggml_tensor * resize_position_embeddings_3d(uint32_t interpolation_mode);
+};
+
 struct clip_graph_parakeet : clip_graph {
     clip_graph_parakeet(clip_ctx * ctx, const clip_image_f32 & img) : clip_graph(ctx, img) {}
     ggml_cgraph * build() override;
